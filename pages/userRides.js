@@ -1,4 +1,4 @@
-import styles from "@/styles/UserRides.module.css";
+import styles from "@/styles/userRides.module.css";
 import { getUpcomingCarpools, getOngoingCarpools, getPastCarpools } from "@/services/carpool";
 import RideCard from "@/components/RideCard/RideCard";
 
