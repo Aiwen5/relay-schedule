@@ -1,14 +1,10 @@
 import styles from "@/styles/UserRides.module.css";
 import { getUpcomingCarpools, getOngoingCarpools, getPastCarpools } from "@/services/carpool";
+import RideCard from "@/components/RideCard/RideCard";
 
 const userId = "hkdSMSsaZIg4tJE8q4fC8ejp1hO2"; // Hardcoded for now
 
 export default function UserRides({ upcomingRides, ongoingRides, pastRides }) {
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return isNaN(date) ? "Invalid Date" : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  };
 
   return (
     <div className={styles.container}>
@@ -18,20 +14,7 @@ export default function UserRides({ upcomingRides, ongoingRides, pastRides }) {
       <ul>
         {ongoingRides.length > 0 ? (
           ongoingRides.map((ride) => (
-            <li key={ride.carpoolId} className={styles.card}>
-              <div className={styles.cardContent}>
-                <h3>{ride.driver.firstName} {ride.driver.lastName}</h3>
-                <p className={styles.date}>{formatDate(ride.startDate)}</p>
-                <div className={styles.time}>
-                <span className={styles.address}>{ride.startingAddress}</span>
-                  <span className={styles.timeValue}>{ride.startTime || "Invalid"}</span>
-                </div>
-                <div className={styles.time}>
-                  <span className={styles.address}>{ride.endingAddress}</span>
-                  <span className={styles.timeValue}>{ride.endTime || "Invalid"}</span>
-                </div>
-              </div>
-            </li>
+            <RideCard key={ride.carpoolId} ride={ride} />
           ))
         ) : (
           <p className={styles.nothingHere}>Nothing here</p>
@@ -42,20 +25,7 @@ export default function UserRides({ upcomingRides, ongoingRides, pastRides }) {
       <ul>
         {upcomingRides.length > 0 ? (
           upcomingRides.map((ride) => (
-            <li key={ride.carpoolId} className={styles.card}>
-              <div className={styles.cardContent}>
-                <h3>{ride.driver.firstName} {ride.driver.lastName}</h3>
-                <p className={styles.date}>{formatDate(ride.startDate)}</p>
-                <div className={styles.time}>
-                  <span className={styles.address}>{ride.startingAddress}</span>
-                  <span className={styles.timeValue}>{ride.startTime || "Invalid"}</span>
-                </div>
-                <div className={styles.time}>
-                  <span className={styles.address}>{ride.endingAddress}</span>
-                  <span className={styles.timeValue}>{ride.endTime || "Invalid"}</span>
-                </div>
-              </div>
-            </li>
+            <RideCard key={ride.carpoolId} ride={ride} />
           ))
         ) : (
           <p className={styles.nothingHere}>Nothing here</p>
@@ -66,21 +36,7 @@ export default function UserRides({ upcomingRides, ongoingRides, pastRides }) {
       <ul>
         {pastRides.length > 0 ? (
           pastRides.map((ride) => (
-            <li key={ride.carpoolId} className={styles.card}>
-              <img src={ride.driver.imageUrl} alt={ride.driver.firstName} />
-              <div className={styles.cardContent}>
-                <h3>{ride.driver.firstName} {ride.driver.lastName}</h3>
-                <p className={styles.date}>{formatDate(ride.startDate)}</p>
-                <div className={styles.time}>
-                <span className={styles.address}>{ride.startingAddress}</span>
-                  <span className={styles.timeValue}> {ride.startTime || "Invalid"}</span>
-                </div>
-                <div className={styles.time}>
-                  <span className={styles.address}>{ride.endingAddress}</span>
-                  <span className={styles.timeValue}> {ride.endTime || "Invalid"}</span>
-                </div>
-              </div>
-            </li>
+            <RideCard key={ride.carpoolId} ride={ride} />
           ))
         ) : (
           <p className={styles.nothingHere}>Nothing here</p>
