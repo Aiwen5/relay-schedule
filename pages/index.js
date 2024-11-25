@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to the Relay Schedule Checker
+          Welcome to the Relay Schedule Checker! Routing and logging in isnt set up yet so type /userRides after the URL to see the example rides.
         </h1>
       </main>
     </>
