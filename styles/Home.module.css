@@ -29,9 +29,11 @@
 
 .main {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  gap: 1rem;
 }
 
 .main ol {
@@ -108,8 +110,231 @@ a.secondary {
   flex-shrink: 0;
 }
 
+/*-----Login Page Style-----*/
+.leftBox {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0)), url('/Kid_In_Car.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+}
+
+.rightBox {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.inputContainer {
+  height: 100%;
+  background-color: #202020;
+  padding: 100px 150px;
+  box-sizing: border-box;
+  border-radius: 30px;
+}
+
+.inputContainer h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.inputContainer p {
+  color: #b0b0b0;
+  margin-bottom: 2rem;
+}
+
+.placeholder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 12pt;
+  color: #b0b0b0;
+}
+
+.placeholder label {
+  padding: 0.5rem;
+}
+
+.placeholder button {
+  background: none;
+  border: none;
+  color: #b0b0b0;
+  cursor: pointer;
+}
+
+.loginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background: linear-gradient(to right, #f76b1c, #f85d49); /* Gradient for login button */
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.googleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #ffffff;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.leftBox .relayLogo {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.relayLogo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .leftBox {
+    width: 100%;
+    height: 50%;
+    border-radius: 0;
+    height: 70vh;
+    min-height: 300px;
+  }
+
+  .rightBox {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .inputContainer {
+    max-width: 90%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+    .leftBox .relayLogo {
+    position: absolute;
+    left: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .relayLogo {
+    width: 102px;
+    height: 140px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column;
+    padding: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)), url('/Kid_In_Car.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .leftBox {
+    width: 100%;
+    height: 50%; 
+    background-size: cover;
+    border-radius: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: none;
+  }
+
+  .relayLogo {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .rightBox {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .inputContainer {
+    max-width: 90%;
+    padding: 1rem;
+    border-radius: 16px;
+    background-color: transparent;
+  }
+
+  .rightBox h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .rightBox p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .loginButton {
+    padding: 0.75rem;
+    font-size: 14px;
+    margin-bottom: 1rem;
+  }
+
+  .googleButton {
+    padding: 0.75rem;
+    font-size: 14px;
+  }
+
+  .leftBox .relayLogo {
+    position: relative;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .relayLogo {
+    width: 102px;
+    height: 140px;
+    margin-bottom: 20px;
+  }
+}
+
 /* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
     background: var(--button-primary-hover);
     border-color: transparent;
@@ -124,9 +349,9 @@ a.secondary {
     text-decoration: underline;
     text-underline-offset: 4px;
   }
-}
+} */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .page {
     padding: 32px;
     padding-bottom: 80px;
@@ -159,10 +384,5 @@ a.secondary {
     align-items: center;
     justify-content: center;
   }
-}
+} */
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-}
