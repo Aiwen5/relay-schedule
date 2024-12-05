@@ -1,24 +1,32 @@
 import { getUpcomingCarpools, getOngoingCarpools, getPastCarpools } from "@/services/carpool";
 import RideTabs from "@/components/RideTabs/RideTabs";
+import Head from "next/head";
 import styles from "@/styles/userRides.module.css";
 
 const userId = "dlKJ2KqPEzc4wHStEOPOkK6fin33"; // Hardcoded for now (Vanessa's ID)
 
 export default function UserRides({ upcomingRides, ongoingRides, pastRides }) {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.header}>User Rides</h1>
-      {/* RideTabs dynamically switches between rides */}
-      <RideTabs 
-        ongoingRides={ongoingRides} 
-        upcomingRides={upcomingRides} 
-        pastRides={pastRides} 
-      />
-    </div>
+    <>
+      <Head>
+        <title>Relay Schedule Checker</title>
+        <meta name="description" content="The place to check your Relay rideshare schedule" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/RelaySvg.svg" />
+      </Head>
+      <div className={styles.container}>
+        <h1 className={styles.header}>User Rides</h1>
+        <RideTabs 
+          ongoingRides={ongoingRides} 
+          upcomingRides={upcomingRides} 
+          pastRides={pastRides} 
+        />
+      </div>
+    </>  
   );
 }
 
-// Fetch rides data for server-side rendering
+// Fetch rides data
 export async function getServerSideProps() {
   const upcomingRides = await getUpcomingCarpools(userId);
   const ongoingRides = await getOngoingCarpools(userId);
