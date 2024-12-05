@@ -1,9 +1,12 @@
+import React, { useState } from 'react';
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
 import InputField from "@/components/InputField/InputField";
 
 export default function Home() {
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
     <>
       <Head>
@@ -44,7 +47,8 @@ export default function Home() {
                     type="checkbox"
                     id="Remember this account"
                     name="Remember this account"
-                    checked
+                    checked={isChecked}
+                    onChange={(e) => setIsChecked(e.target.checked)}
                   />
                   <label>Remember this account</label>
                 </div>
@@ -56,7 +60,7 @@ export default function Home() {
             <p>© 2024 RELAY ALL RIGHTS RESERVED</p>
             <p className={styles.title}>
               Welcome to the Relay Schedule Checker! Routing and logging in isnt set up yet so type /userRides after the URL to see the example rides.
-           </p>
+            </p>
           </div>
         </div>
       </main>

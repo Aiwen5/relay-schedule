@@ -4,7 +4,7 @@ export default function InputField({ label, placeholder, type, id, pattern, requ
 
     return(
         <div className={styles.inputField}>
-            <label for={id} className={styles.label}>{label}</label>
+            <label htmlFor={id} className={styles.label}>{label}</label>
             <input 
                 type={type} 
                 id={id}

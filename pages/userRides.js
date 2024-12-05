@@ -1,51 +1,24 @@
-import styles from "@/styles/userRides.module.css";
 import { getUpcomingCarpools, getOngoingCarpools, getPastCarpools } from "@/services/carpool";
-import RideCard from "@/components/RideCard/RideCard";
+import RideTabs from "@/components/RideTabs/RideTabs";
+import styles from "@/styles/userRides.module.css";
 
-const userId = "hkdSMSsaZIg4tJE8q4fC8ejp1hO2"; // Hardcoded for now
+const userId = "dlKJ2KqPEzc4wHStEOPOkK6fin33"; // Hardcoded for now (Vanessa's ID)
 
 export default function UserRides({ upcomingRides, ongoingRides, pastRides }) {
-
   return (
     <div className={styles.container}>
-      <h1>User Rides</h1>
-
-      <h2>Current Rides</h2>
-      <ul>
-        {ongoingRides.length > 0 ? (
-          ongoingRides.map((ride) => (
-            <RideCard key={ride.carpoolId} ride={ride} />
-          ))
-        ) : (
-          <p className={styles.nothingHere}>Nothing here</p>
-        )}
-      </ul>
-
-      <h2>Upcoming Rides</h2>
-      <ul>
-        {upcomingRides.length > 0 ? (
-          upcomingRides.map((ride) => (
-            <RideCard key={ride.carpoolId} ride={ride} />
-          ))
-        ) : (
-          <p className={styles.nothingHere}>Nothing here</p>
-        )}
-      </ul>
-
-      <h2>Past Rides</h2>
-      <ul>
-        {pastRides.length > 0 ? (
-          pastRides.map((ride) => (
-            <RideCard key={ride.carpoolId} ride={ride} />
-          ))
-        ) : (
-          <p className={styles.nothingHere}>Nothing here</p>
-        )}
-      </ul>
+      <h1 className={styles.header}>User Rides</h1>
+      {/* RideTabs dynamically switches between rides */}
+      <RideTabs 
+        ongoingRides={ongoingRides} 
+        upcomingRides={upcomingRides} 
+        pastRides={pastRides} 
+      />
     </div>
   );
 }
 
+// Fetch rides data for server-side rendering
 export async function getServerSideProps() {
   const upcomingRides = await getUpcomingCarpools(userId);
   const ongoingRides = await getOngoingCarpools(userId);
