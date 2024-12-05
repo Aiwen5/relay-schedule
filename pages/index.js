@@ -13,7 +13,7 @@ export default function Home() {
         <title>Relay Schedule Checker</title>
         <meta name="description" content="The place to check your Relay rideshare schedule" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/RelaySvg.svg" />
       </Head>
       <main className={styles.main}>
         <div className={styles.leftBox}>
