@@ -8,17 +8,60 @@ const RideCard = ({ ride }) => {
 
   return (
     <li key={ride.carpoolId} className={styles.card}>
-      <img src={ride.driver.imageUrl} alt={ride.driver.firstName} />
-      <div className={styles.cardContent}>
-        <h3>{ride.driver.firstName} {ride.driver.lastName}</h3>
-        <p className={styles.date}>{formatDate(ride.startDate)}</p>
-        <div className={styles.time}>
-          <span className={styles.address}>{ride.startingAddress}</span>
-          <span className={styles.timeValue}>{ride.startTime || "Invalid"}</span>
+      {/* Top Section: Driver Info */}
+      <div className={styles.topSection}>
+        <div className={styles.fakeNumber}>RN: T20240322004</div>
+        <div className={styles.finishedTag}>Finished</div>
+      </div>
+
+      {/* Driver Details */}
+      <div className={styles.driverSection}>
+        <img
+          src={ride.driver.imageUrl}
+          alt={ride.driver.firstName}
+          className={styles.driverImage}
+        />
+        <div className={styles.driverInfo}>
+          <p className={styles.driverLabel}>Driver</p>
+          <h3 className={styles.driverName}>{ride.driver.firstName} {ride.driver.lastName}</h3>
+          <div className={styles.likes}>
+            <span className={styles.heart} />
+            <p>{ride.driver.likes} likes</p>
+          </div>
         </div>
-        <div className={styles.time}>
-          <span className={styles.address}>{ride.endingAddress}</span>
-          <span className={styles.timeValue}>{ride.endTime || "Invalid"}</span>
+      </div>
+
+      {/* Bottom Section: Ride Details */}
+      <div className={styles.detailsSection}>
+        <p className={styles.date}>{formatDate(ride.startDate)}</p>
+
+        <div className={styles.location}>
+          <span className={styles.bulletOrange} />
+          <p>{ride.startingAddress}</p>
+          <span className={styles.time}>{ride.startTime}</span>
+        </div>
+
+        <div className={styles.location}>
+          <span className={styles.bulletRed} />
+          <p>{ride.endingAddress}</p>
+          <span className={styles.time}>03: 52 PM</span>
+        </div>
+
+        <div className={styles.bottomRow}>
+          <div className={styles.childImages}>
+            {ride.requests?.map((request, index) =>
+              request.child?.imageUrl ? (
+                <img
+                  key={index}
+                  src={request.child.imageUrl}
+                  alt={request.child.firstName}
+                  className={styles.childImage}
+                  style={{ zIndex: 10 - index }}
+                />
+              ) : null
+            )}
+          </div>
+          <div className={styles.recurringTag}>Recurring</div>
         </div>
       </div>
     </li>

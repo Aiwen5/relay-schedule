@@ -2,10 +2,9 @@ import styles from "@/styles/userRides.module.css";
 import { getUpcomingCarpools, getOngoingCarpools, getPastCarpools } from "@/services/carpool";
 import RideCard from "@/components/RideCard/RideCard";
 
-const userId = "hkdSMSsaZIg4tJE8q4fC8ejp1hO2"; // Hardcoded for now
+const userId = "dlKJ2KqPEzc4wHStEOPOkK6fin33"; // Hardcoded for now (Vanessa's ID)
 
 export default function UserRides({ upcomingRides, ongoingRides, pastRides }) {
-
   return (
     <div className={styles.container}>
       <h1>User Rides</h1>
@@ -50,6 +49,19 @@ export async function getServerSideProps() {
   const upcomingRides = await getUpcomingCarpools(userId);
   const ongoingRides = await getOngoingCarpools(userId);
   const pastRides = await getPastCarpools(userId);
+  
+  const requests = await getPastCarpools('dlKJ2KqPEzc4wHStEOPOkK6fin33');
+
+  pastRides.forEach((ride, rideIndex) => {
+    console.log(`Ride ${rideIndex + 1}:`);
+    if (ride.requests) {
+      ride.requests.forEach((request, reqIndex) => {
+        console.log(`  Request ${reqIndex + 1}:`, request);
+      });
+    } else {
+      console.log(`  No requests for Ride ${rideIndex + 1}`);
+    }
+  });
 
   console.log("Fetched Upcoming Rides:", upcomingRides);
   console.log("Fetched Ongoing Rides:", ongoingRides);
