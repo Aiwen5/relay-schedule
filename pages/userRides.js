@@ -16,7 +16,6 @@ export default function UserRides({ upcomingRides, ongoingRides, pastRides }) {
       </Head>
       <div className={styles.container}>
         <h1 className={styles.header}>User Rides</h1>
-        {/* RideTabs dynamically switches between rides */}
         <RideTabs 
           ongoingRides={ongoingRides} 
           upcomingRides={upcomingRides} 
@@ -27,7 +26,7 @@ export default function UserRides({ upcomingRides, ongoingRides, pastRides }) {
   );
 }
 
-// Fetch rides data for server-side rendering
+// Fetch rides data
 export async function getServerSideProps() {
   const upcomingRides = await getUpcomingCarpools(userId);
   const ongoingRides = await getOngoingCarpools(userId);
