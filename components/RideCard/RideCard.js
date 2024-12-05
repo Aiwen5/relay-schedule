@@ -25,8 +25,8 @@ const RideCard = ({ ride }) => {
           <p className={styles.driverLabel}>Driver</p>
           <h3 className={styles.driverName}>{ride.driver.firstName} {ride.driver.lastName}</h3>
           <div className={styles.likes}>
-            <span className={styles.heart} />
-            <p>{ride.driver.likes} likes</p>
+            {/* <span className={styles.heart} /> */}
+            <p>{ride.driver.likes}305 likes</p>
           </div>
         </div>
       </div>
@@ -36,15 +36,15 @@ const RideCard = ({ ride }) => {
         <p className={styles.date}>{formatDate(ride.startDate)}</p>
 
         <div className={styles.location}>
-          <span className={styles.bulletOrange} />
+          {/* <span className={styles.bulletOrange} /> */}
           <p>{ride.startingAddress}</p>
           <span className={styles.time}>{ride.startTime}</span>
         </div>
 
         <div className={styles.location}>
-          <span className={styles.bulletRed} />
+          {/* <span className={styles.bulletRed} /> */}
           <p>{ride.endingAddress}</p>
-          <span className={styles.time}>03: 52 PM</span>
+          <span className={`${styles.time} ${styles.endTime}`}>03: 52 PM</span>
         </div>
 
         <div className={styles.bottomRow}>

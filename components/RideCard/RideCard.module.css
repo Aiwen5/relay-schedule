@@ -1,6 +1,6 @@
 .card {
-  background: #2c2c2c; /* Dark background */
-  border: 1px solid rgba(102, 102, 102, 0.5); /* Subtle dark border */
+  background: #2c2c2c;
+  border: 1px solid rgba(102, 102, 102, 0.5);
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 20px;
@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 10px;
-  max-width: 100%; /* Ensure the card doesn't overflow the viewport */
+  max-width: 100%;
 }
 
 .topSection {
@@ -21,13 +21,13 @@
   font-size: 10px;
   font-weight: 700;
   font-family: "Comfortaa", sans-serif;
-  color: #c4c4c4; /* Light gray text */
+  color: #c4c4c4;
 }
 
 .finishedTag {
   padding: 6px 16px;
-  background: #ff5f52; /* Bright red for visibility */
-  color: #ffffff; /* White text */
+  background: #ff5f52;
+  color: #ffffff;
   font-size: 10px;
   font-weight: 700;
   font-family: "Comfortaa", sans-serif;
@@ -55,14 +55,14 @@
 
 .driverLabel {
   font-size: 12px;
-  color: #a6a6a6; /* Subtle gray for labels */
+  color: #a6a6a6;
   font-weight: 500;
 }
 
 .driverName {
   font-size: 17px;
   font-weight: 700;
-  color: #ffffff; /* Bright white for emphasis */
+  color: #ffffff;
 }
 
 .likes {
@@ -71,7 +71,7 @@
   gap: 5px;
   font-size: 12px;
   font-weight: 500;
-  color: #fb6856; /* Bright red for likes */
+  color: #fb6856;
 }
 
 .heart {
@@ -82,7 +82,7 @@
 }
 
 .detailsSection {
-  border-top: 1px solid rgba(102, 102, 102, 0.5); /* Subtle divider */
+  border-top: 1px solid rgba(102, 102, 102, 0.5);
   padding-top: 10px;
   display: flex;
   flex-direction: column;
@@ -92,7 +92,7 @@
 .date {
   font-size: 20px;
   font-weight: 700;
-  color: #b8b8b8; /* Light gray for date */
+  color: #e1e1e1;
   letter-spacing: 0.2px;
 }
 
@@ -100,6 +100,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #c8c8c8;
   gap: 10px;
 }
 
@@ -111,17 +112,21 @@
 }
 
 .bulletOrange {
-  background: #ffa500; /* Bright orange */
+  background: #ffa500;
 }
 
 .bulletRed {
-  background: #e24949; /* Bright red */
+  background: #e24949;
 }
 
 .time {
-  color: #ffa500; /* Bright orange for times */
+  color: #ffa500;
   font-size: 14px;
   font-weight: 500;
+}
+
+.endTime {
+  color: #e24949;
 }
 
 .bottomRow {
@@ -132,7 +137,7 @@
 
 .childImages {
   display: flex;
-  gap: -10px; /* Overlap images */
+  gap: -10px;
   margin-left: 10px;
 }
 
@@ -141,12 +146,12 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #2c2c2c; /* Matches background */
+  border: 2px solid #2c2c2c;
 }
 
 .recurringTag {
   padding: 5px 10px;
-  background: rgba(255, 136, 51, 0.1); /* Slightly transparent orange */
+  background: rgba(255, 136, 51, 0.1);
   color: #ffa500;
   font-size: 12px;
   font-weight: 700;

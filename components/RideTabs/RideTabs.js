@@ -3,7 +3,7 @@ import styles from './RideTabs.module.css';
 import RideCard from '@/components/RideCard/RideCard';
 
 export default function RideTabs({ ongoingRides, upcomingRides, pastRides }) {
-  const [activeTab, setActiveTab] = useState('inProgress');
+  const [activeTab, setActiveTab] = useState('history');
 
   const renderRides = () => {
     switch (activeTab) {
